@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<file>
+  <headers>{% for header in headers %}{{header}}{%if not loop.last%},{% endif %}{% endfor %}</headers>
+  <data>
+    {% for line in data %}
+        <record>
+          {% for header in headers %}
+            {% set i = loop.index-1 %}
+            <{{headers[i]|replace(" ", "_")}}>{{line[i]}}</{{headers[i]|replace(" ", "_")}}>
+          {% endfor %}
+        </record>
+    {% endfor %}
+  </data>
+</file>

@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <table>
+      <tr>
+      {% for header in headers %}
+        <th>{{header}}</th>
+      {% endfor %}
+      </tr>
+      {% for line in data %}
+      <tr>
+      {% for value in line %}
+        <td>{{value if value is not none else '' }}</td>
+      {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
